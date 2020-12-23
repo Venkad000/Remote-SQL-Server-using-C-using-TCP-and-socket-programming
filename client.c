@@ -46,6 +46,9 @@ int main(int argc, char *argv[])
     {
         bzero(buffer,256);
         fgets(buffer,255,stdin);
+        int i = strncmp("Bye", buffer, 3);
+        if (i == 0)
+            break;
         n = write(sockfd,buffer,strlen(buffer));
         if (n < 0) 
              error("ERROR writing to socket");
